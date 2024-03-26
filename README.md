@@ -23,7 +23,7 @@ Hangman is a user-friendly word-guessing game where the objective is to guess a 
 
 ### Links
 
-- Live Site URL:
+- Live Site URL: https://hangman-minigame.netlify.app/
 
 ### Built with
 
