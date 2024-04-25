@@ -77,24 +77,27 @@ function showNotification() {
 
 // Event Listeners - keydown letter press
 window.addEventListener('keydown', (e) => {
-  if (e.code.toLowerCase().startsWith('key')) {
-    const letter = e.key;
+  // Check if the game is still ongoing
+  if (!popup.style.display || popup.style.display === 'none') {
+    if (e.code.toLowerCase().startsWith('key')) {
+      const letter = e.key;
 
-    if (selectedWord.includes(letter)) {
-      if (!correctLetters.includes(letter)) {
-        correctLetters.push(letter);
+      if (selectedWord.includes(letter)) {
+        if (!correctLetters.includes(letter)) {
+          correctLetters.push(letter);
 
-        displayWord();
+          displayWord();
+        } else {
+          showNotification();
+        }
       } else {
-        showNotification();
-      }
-    } else {
-      if (!wrongLetters.includes(letter)) {
-        wrongLetters.push(letter);
+        if (!wrongLetters.includes(letter)) {
+          wrongLetters.push(letter);
 
-        updateWrongLettersEl();
-      } else {
-        showNotification();
+          updateWrongLettersEl();
+        } else {
+          showNotification();
+        }
       }
     }
   }
